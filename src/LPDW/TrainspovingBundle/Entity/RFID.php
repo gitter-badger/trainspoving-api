@@ -3,9 +3,12 @@
 namespace LPDW\TrainspovingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
+ * @UniqueEntity("id")
  */
 class RFID
 {
@@ -31,6 +34,7 @@ class RFID
     /**
      * @ORM\Id
      * @ORM\Column(type="string", length=16)
+     * @Assert\NotBlank
      */
     private $id;
 
