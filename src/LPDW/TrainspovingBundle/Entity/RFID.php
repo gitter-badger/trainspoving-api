@@ -35,12 +35,12 @@ class RFID
     private $id;
 
     /**
-     * @ORM\Column
+     * @ORM\Column(nullable=true)
      */
     private $type;
 
     /**
-     * @ORM\Column
+     * @ORM\Column(nullable=true)
      */
     private $color;
 
