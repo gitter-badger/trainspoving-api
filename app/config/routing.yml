@@ -1,0 +1,5 @@
+lpdw_trainspoving:
+    resource: "@LPDWTrainspovingBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
