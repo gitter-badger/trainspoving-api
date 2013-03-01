@@ -13,7 +13,11 @@ class ReminderType extends AbstractType
         $builder
             ->add('arrivalDate')
             ->add('leeway')
-            ->add('rfid')
+            ->add('rfid', 'entity', array(
+                'class'       => 'LPDWTrainspovingBundle:RFID',
+                'property'    => 'id',
+                'empty_value' => 'none'
+            ))
         ;
     }
 

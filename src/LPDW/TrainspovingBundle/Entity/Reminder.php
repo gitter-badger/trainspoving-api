@@ -108,4 +108,27 @@ class Reminder
 
         return $date;
     }
+
+    /**
+     * Set rfid
+     *
+     * @param \LPDW\TrainspovingBundle\Entity\RFID $rfid
+     * @return Reminder
+     */
+    public function setRfid(\LPDW\TrainspovingBundle\Entity\RFID $rfid = null)
+    {
+        $this->rfid = $rfid;
+    
+        return $this;
+    }
+
+    /**
+     * Get rfid
+     *
+     * @return \LPDW\TrainspovingBundle\Entity\RFID 
+     */
+    public function getRfid()
+    {
+        return $this->rfid;
+    }
 }
