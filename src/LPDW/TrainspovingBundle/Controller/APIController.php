@@ -4,12 +4,14 @@ namespace LPDW\TrainspovingBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use LPDW\TrainspovingBundle\Entity\RFID;
+use LPDW\TrainspovingBundle\Entity\Reminder;
 use LPDW\TrainspovingBundle\Form\RFIDType;
 
 /**
@@ -39,6 +41,23 @@ class APIController extends Controller
         }
 
         return new Response(null, 400); // HTTP 400 Bad Request
+    }
+
+    /**
+     * @Route("/reminders", name="reminders")
+     * @//Method("GET")
+     */
+    public function remindersAction(Request $request)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $reminders = $em->getRepository('LPDWTrainspovingBundle:Reminder')->findAll();
+
+        $data = array();
+        foreach ($reminders as $reminder) {
+            $data[] = $reminder->toArray();
+        }
+
+        return new JsonResponse($data);
     }
 
     private function createRFIDForm($rfid = null)

@@ -40,6 +40,20 @@ class Reminder
     }
 
     /**
+     * Return an array representation of this object, used for JSON serialization
+     * @return array
+     */
+    public function toArray()
+    {
+        return array(
+            'arrivalDate' => $this->getArrivalDate()->format(\DateTime::ISO8601),
+            'leeway'      => $this->getLeeway(),
+            'date'        => $this->getDate()->format(\DateTime::ISO8601),
+            'rfid'        => $this->getRfid()->getId()
+        );
+    }
+
+    /**
      * Get id
      *
      * @return integer 
