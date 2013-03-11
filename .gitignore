@@ -7,3 +7,4 @@
 /bin/
 /composer.phar
 /app/config/parameters.yml
+/app/config/parameters_prod.yml
