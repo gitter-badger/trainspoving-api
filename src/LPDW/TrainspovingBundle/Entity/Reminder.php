@@ -45,12 +45,16 @@ class Reminder
      */
     public function toArray()
     {
-        return array(
+        $data = array(
             'arrivalDate' => $this->getArrivalDate()->format(\DateTime::ISO8601),
             'leeway'      => $this->getLeeway(),
-            'date'        => $this->getDate()->format(\DateTime::ISO8601),
-            'rfid'        => $this->getRfid()->getId()
+            'date'        => $this->getDate()->format(\DateTime::ISO8601)
         );
+        if ($rfid = $this->getRfid()) {
+            $data['rfid'] = $rfid->getId();
+        }
+
+        return $data;
     }
 
     /**
@@ -118,7 +122,7 @@ class Reminder
             return null;
         }
         $date = clone $arrival;
-        $date->modify(sprintf('-%i seconds', $this->getLeeway()));
+        $date->modify(sprintf('-%d seconds', $this->getLeeway()));
 
         return $date;
     }
