@@ -46,7 +46,7 @@ class Reminder
     public function toArray()
     {
         $data = array(
-            'arrivalDate' => $this->getArrivalDate()->format(\DateTime::ISO8601),
+            'arrival_date' => $this->getArrivalDate()->format(\DateTime::ISO8601),
             'leeway'      => $this->getLeeway(),
             'date'        => $this->getDate()->format(\DateTime::ISO8601)
         );
