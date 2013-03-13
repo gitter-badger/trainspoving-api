@@ -1,0 +1,33 @@
+.input-min{
+	border-left: 0 none !important;
+    border-radius: 0 0 0 0 !important;
+}
+
+ul{
+	list-style-type: none;
+	margin: 0;
+}
+
+/* Show page */
+.show-btn-edit-delete li{
+	float: left;
+	margin-right: 15px;
+}
+
+/* Edit page */
+.edit-btn-edit{
+	float: left;
+}
+.edit-btn-delete{
+	margin: 0 0 0 15px;
+}
+
+/* New page */
+.new-div{
+	margin-top: 20px; 
+}
+
+/* Others */
+.clear{
+	clear: both;
+}
