@@ -3,14 +3,14 @@
 {% block body -%}
     <h1>Reminder</h1>
 
-    <table class="record_properties">
+    <table class="records_list table table-bordered table-striped table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Arrivaldate</th>
+                <th>Arrival date</th>
                 <td>{{ entity.arrivalDate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
@@ -20,23 +20,27 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('reminder') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('reminder_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('reminder_delete', { 'id': entity.id }) }}" method="post">
-            <input type="hidden" name="_method" value="DELETE" />
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+    
+    <ul class="record_actions show-btn-edit-delete">
+        <li>
+            <a class="btn btn-info btn-large" href="{{ path('reminder_edit', { 'id': entity.id }) }}">
+                <i class="icon-edit icon-white"></i> Edit
+            </a>
+        </li>
+        <li>
+            <form action="{{ path('reminder_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button class="btn btn-info btn-large" type="submit"><i class="icon-remove icon-white"></i> Delete</button>
+            </form>
+        </li>
+    </ul>
+    <div class="clear"></div>
+    <ul class="record_actions pager">
+        <li class="previous">
+            <a href="{{ path('reminder') }}">
+                ← Back to the list
+            </a>
+        </li>
+    </ul>
 {% endblock %}

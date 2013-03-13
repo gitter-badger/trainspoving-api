@@ -3,7 +3,7 @@
 {% block body -%}
     <h1>Reminder list</h1>
 
-    <table class="records_list">
+    <table class="records_list table table-bordered table-striped table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,14 +19,19 @@
                 <td>{% if entity.arrivalDate %}{{ entity.arrivalDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.leeway }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('reminder_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('reminder_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <div class="btn-group">
+                        <button data-toggle="dropdown" class="btn dropdown-toggle btn-info">
+                            Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ path('reminder_show', { 'id': entity.id }) }}"><i class="icon-eye-open"></i> show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('reminder_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i> edit</a>
+                            </li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
@@ -35,8 +40,8 @@
 
     <ul>
         <li>
-            <a href="{{ path('reminder_new') }}">
-                Create a new entry
+            <a class="btn btn-info btn-large" href="{{ path('reminder_new') }}">
+                <i class="icon-pencil icon-white"></i> Create a new entry
             </a>
         </li>
     </ul>
