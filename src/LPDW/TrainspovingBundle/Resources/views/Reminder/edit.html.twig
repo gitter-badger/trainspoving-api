@@ -1,10 +1,10 @@
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
-        <link href="{{ asset('/web/assets/css/datepicker.css') }}" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ asset('/web/assets/less/datepicker.less') }}" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ asset('/web/assets/css/slider.css') }}" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ asset('/web/assets/less/slider.less') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('assets/css/datepicker.css') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('assets/less/datepicker.less') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('assets/css/slider.css') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('assets/less/slider.less') }}" rel="stylesheet" type="text/css" media="all" />
 {% endblock %}
 
 {% block body -%}
@@ -70,8 +70,8 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('/web/assets/js/bootstrap-datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/web/assets/js/bootstrap-slider.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap-datepicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap-slider.js') }}"></script>
     <script>
         $(function(){
             window.prettyPrint && prettyPrint()
